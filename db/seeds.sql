@@ -1,4 +1,4 @@
-INSERT INTO movies (id, movie_name)
+INSERT INTO movies (movie_name)
 VALUES ("The Godfather"),
        ("The Notebook"),
        ("Pulp Fiction"),
