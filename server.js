@@ -1,7 +1,5 @@
 const express = require("express");
-const fs = require("fs");
-const path = require("path");
-const reviews = require("./db/db.json");
+const mysql = require("mysql2");
 
 const app = express();
 const PORT = process.env.PORT || 3002;
@@ -9,7 +7,6 @@ const PORT = process.env.PORT || 3002;
 // Middleware for JSON parsing
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/api", api);
 
 // Connect to database
 const db = mysql.createConnection(
@@ -22,18 +19,19 @@ const db = mysql.createConnection(
   console.log(`Connected to the movie_db database`)
 );
 
-db.query;
-
 //get route for retrieving movie data from db.json file
 app.get("/api/movies", (req, res) => {
+  db.query("SELECT * FROM movies", function (err, results) {
+    console.log(results);
+    return res.json(results);
+  });
   console.info(`${req.method} request received to get movies`);
-  return res.json(reviews);
 });
 
 // POST route for sending movie data from db.json file
-app.post("/api/movies", (req, res) => {
-  res.json(reviews);
-});
+// app.post("/api/movies", (req, res) => {
+//   res.json(reviews);
+// });
 
 // app.post("/api/add-movie", (req, res) => {
 //     const newMovie = {
