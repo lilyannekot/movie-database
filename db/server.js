@@ -22,3 +22,7 @@ app.get ("/api/movies", function (req, res){
 app.post ("/api/add-movie", function (req, res){
     res.
 });
+
+app.listen(PORT, () =>
+  console.log(`App listening at http://localhost:${PORT} 🚀`)
+);
