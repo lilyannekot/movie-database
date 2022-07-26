@@ -22,6 +22,8 @@ const db = mysql.createConnection(
   console.log(`Connected to the movie_db database`)
 );
 
+db.query;
+
 //get route for retrieving movie data from db.json file
 app.get("/api/movies", (req, res) => {
   console.info(`${req.method} request received to get movies`);
