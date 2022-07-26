@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS movies_db;
-CREATE DATABASE movies_db;
+DROP DATABASE IF EXISTS movie_db;
+CREATE DATABASE movie_db;
 
-USE movies_db;
+USE movie_db;
 
 -- Table for movies
 DROP TABLE IF EXISTS movies;
@@ -18,4 +18,4 @@ CREATE TABLE reviews (
     review TEXT,
     FOREIGN KEY (movie_id) REFERENCES movies(id)
     ON DELETE SET NULL
-)
+);
